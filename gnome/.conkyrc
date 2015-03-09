@@ -1,0 +1,104 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+# By Jesse_Avalos see me on Eye Candy linux google plus !!!!!
+background yes
+use_xft yes
+xftfont ITC Avant Garde Gothic Pro:size=9
+xftalpha 0.8
+update_interval 1
+total_run_times 0
+own_window yes
+own_window_transparent yes
+##############################################
+# Compositing tips:
+# Conky can play strangely when used with
+# different compositors. I have found the
+# following to work well, but your mileage
+# may vary. Comment/uncomment to suit.
+##############################################
+## no compositor
+#own_window_type override
+#own_window_argb_visual no
+
+## xcompmgr
+#own_window_type override
+#own_window_argb_visual yes
+
+## cairo-compmgr
+own_window_type desktop
+own_window_argb_visual yes
+##############################################
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_margin 5
+border_width 1
+default_color 000000
+default_shade_color 000000
+default_outline_color 000000
+minimum_size 0 0
+maximum_width 500
+gap_x 820
+gap_y 80
+alignment top_left
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+short_units yes
+text_buffer_size 2048
+use_spacer none
+override_utf8_locale yes
+default_color CACCCB
+color1 CACCCB
+color2 121111
+color3 FF9900
+
+own_window_argb_value 0
+own_window_colour 000000
+TEXT
+${goto 35}${font ITC Avant Garde Gothic Pro:size=90} ${time %H}${color3}${time %M}${color1}
+${goto 85}${voffset -80}${font Anonymous Pro:size=18} ${time %A}
+${goto 155}${voffset }${font Anonymous Pro:size=15}  ${time %b} 
+${goto 215}${voffset -25}${color3}${font Anonymous Pro:size=20}${time %d}${color1}
+
+${goto 350}${voffset -190}${font Anonymous Pro:size=15}Mem ${color3}$memperc%${color1}
+
+${goto 350}CPU${color3} ${cpu cpu0}%${color1}
+
+${goto 350}WiFi ${color3}${wireless_link_qual wlo1}%${color1}
+
+${goto 350}Battery ${color3}${battery_percent}%
+
+#${goto 340}${if_running audacious}
+#${goto 340}${alignc}${offset -5}${color White}${exec audtool --current-song-tuple-data artist}
+
+#${goto 350}${execi 2 ~/audacious}
+${if_running audacious}${execpi 3 ~/.conky/shell-scripts/audacious-info.sh}${endif}
