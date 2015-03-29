@@ -4,6 +4,7 @@ nano /etc/locale.gen
 locale-gen
 echo LANG=ru_RU.UTF-8 > /etc/locale.conf
 export LANG=ru_RU.UTF-8
+nano /etc/vconsole.conf
 ln -s /usr/share/zoneinfo/Europe/Kiev /etc/localtime
 echo moddi3 > /etc/hostname
 nano /etc/hosts
