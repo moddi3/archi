@@ -9,7 +9,8 @@ nano /etc/locale.gen
 echo -e "${YELLOW} LOCALE.GEN "
 locale-gen
 export LANG=ru_RU.UTF-8
-wifi-menu
+#wifi-menu
+ping -c 3 google.com
 echo -e "${YELLOW} LSBLK "
 lsblk
 mkfs.ext2 -L boot /dev/sda5
@@ -21,9 +22,10 @@ mount /dev/sda6 /mnt
 mkdir -p /mnt/{boot,home}
 mount /dev/sda5 /mnt/boot
 mount /dev/sda8 /mnt/home
-mv /etc/pacman.d/mirrorlist mirrorlist.old
-cp mirrorlist > /etc/pacman.d/mirrorlist
+nano /etc/pacman.d/mirrorlist
+#mv /etc/pacman.d/mirrorlist mirrorlist.old
+#cp mirrorlist > /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel dialog wpa_supplicant networkmanager
 genfstab -U -p /mnt >> /mnt/etc/fstab
-nano /mnt/etc/fstab
+cat /mnt/etc/fstab
 echo -e "${YELLOW} DONE! "
