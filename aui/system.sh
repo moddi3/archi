@@ -7,8 +7,8 @@ export LANG=ru_RU.UTF-8
 ln -s /usr/share/zoneinfo/Europe/Kiev /etc/localtime
 echo moddi3 > /etc/hostname
 nano /etc/hosts
-sudo NetworkManager
-nmcli dev wifi connect osnova3 password 36376971
+#sudo NetworkManager
+#nmcli dev wifi connect osnova3 password 36376971
 ping -c 3 google.com
 mkinitcpio -p linux
 passwd
