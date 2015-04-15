@@ -10,7 +10,7 @@ echo -e "${YELLOW} LOCALE.GEN "
 locale-gen
 export LANG=ru_RU.UTF-8
 #wifi-menu
-ping -c 3 google.com
+ping -c 4 google.com
 echo -e "${YELLOW} LSBLK "
 lsblk
 mkfs.ext2 -L boot /dev/sda5
