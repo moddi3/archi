@@ -28,4 +28,4 @@ nano /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel dialog wpa_supplicant networkmanager
 genfstab -U -p /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
-echo -e "${YELLOW} DONE! "
+echo -e "${YELLOW} DONE!!!! "
